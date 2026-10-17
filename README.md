@@ -1,218 +1,176 @@
 # PIXELFORGE — Creative Asset Studio
 
-> **Craft Ideas. Forge Visuals.**
-> A full-stack creative asset management system, project & deliverable revision workspace, client collaboration portal, and public graphic design portfolio built with Next.js 15, TypeScript, Tailwind CSS, and Supabase.
+<p align="center">
+  <img src="public/placeholders/asset-brand-system.svg" alt="PIXELFORGE Banner" width="100%" height="auto" />
+</p>
+
+<p align="center">
+  <strong>Craft Ideas. Forge Visuals.</strong><br />
+  A modern creative workspace where designers organize visual assets, manage projects, collaborate with clients, and publish high-craft portfolios.
+</p>
+
+<p align="center">
+  <a href="https://pixelforge-ecru.vercel.app/">
+    <img src="https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel" alt="Vercel Deployment" />
+  </a>
+  <img src="https://img.shields.io/badge/Next.js-15.5-black?style=for-the-badge&logo=next.js" alt="Next.js 15" />
+  <img src="https://img.shields.io/badge/TypeScript-5.8-blue?style=for-the-badge&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TailwindCSS-3.4-38bdf8?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase" alt="Supabase" />
+  <img src="https://img.shields.io/badge/Tests-89%20Passing-brightgreen?style=for-the-badge" alt="89 Tests Passing" />
+</p>
 
 ---
 
-## 1. Project Overview & Feature List
+## 🌐 Live Application
 
-**PIXELFORGE** unifies five core workflows for freelance designers, digital artists, creative studios, and their clients:
-
-1. **Public Graphic Design Portfolio (`/`, `/portfolio`, `/portfolio/[slug]`, `/about`, `/contact`):**
-   - High-craft dark-first studio showcase with light-mode persistence, interactive case studies, design process breakdowns, and an anti-spam protected commission inquiry gateway.
-2. **Private Creative Asset Management System (`/dashboard/assets`, `/dashboard/collections`):**
-   - Searchable asset library with Grid and List views, multi-facet filtering (format, category, tag, project, collection), sorting, bulk operations, drag-and-drop multipart uploads (`50 MB` limit), non-traversable UUID storage paths, custom tags, curated collections, and 30-minute signed URLs for private files in the `creative-assets` bucket.
-3. **Project & Deliverable Revision Workspace (`/dashboard/projects`, `/dashboard/projects/[id]`):**
-   - Full project CRUD, status tracking (`draft`, `in_progress`, `in_review`, `completed`, `archived`), priority levels, deliverable version history (`v1`, `v2`, ...), and a side-by-side Version Comparison Matrix computing version jumps, file-size deltas, and review status changes.
-4. **Zero-Trust Client Collaboration Portal (`/dashboard/clients`, `/invite/[token]`):**
-   - Cryptographically random single-use expiring invitations (`32 bytes` / `64 hex chars`) stored exclusively as `SHA-256` hashes (`token_hash`), idempotent invitation acceptance, role-scoped client views, revision comment threads, and an **Independent Sign-Off Rule** preventing deliverable submitters from approving their own work (`SELF_APPROVAL_FORBIDDEN`).
-5. **Studio Telemetry, Immutable Activity Logs & Notification Center (`/dashboard`, `/dashboard/activity`, `/dashboard/settings`):**
-   - Live KPI dashboard, append-only audit logs with automatic secret redaction (`sanitizeActivityMetadata`), recipient-scoped in-app notification center with unread badges and single/bulk read actions, inbound contact inquiry triage, and a health-check endpoint (`GET /api/v1/health`).
+- **Live URL:** [https://pixelforge-ecru.vercel.app/](https://pixelforge-ecru.vercel.app/)
+- **Health Check & Diagnostics:** [https://pixelforge-ecru.vercel.app/api/v1/health](https://pixelforge-ecru.vercel.app/api/v1/health)
 
 ---
 
-## 2. Technology Stack
+## 🔑 Cara Mengakses Aplikasi & Akun Demo
 
-| Layer | Technology |
-| :--- | :--- |
-| **Framework** | Next.js 15.5 (App Router, Server & Client Components, Route Handlers, Middleware) |
-| **Language** | TypeScript 5.8 (Strict mode) |
-| **Styling & Motion** | Tailwind CSS 3.4, CSS Custom Properties (Dark/Light tokens), Framer Motion 12, Lucide Icons |
-| **Database & Auth** | Supabase PostgreSQL 15+, `@supabase/ssr`, `@supabase/supabase-js`, Row Level Security (`FORCE ROW LEVEL SECURITY`) |
-| **File Storage** | Supabase Storage (`creative-assets` private bucket with signed URLs) |
-| **Validation & Forms** | Zod, React Hook Form |
-| **Testing** | Vitest 3, `@electric-sql/pglite` (in-memory PostgreSQL 15 engine for real SQL + RLS policy execution) |
-| **Deployment** | Vercel (Next.js Runtime) + Supabase Cloud (Free / Pro Tier) |
+Anda dapat langsung mencoba aplikasi baik di versi live Vercel maupun di localhost menggunakan akun-akun demo berikut:
+
+| Peran (Role) | Email | Password | Hak Akses Utama |
+| :--- | :--- | :--- | :--- |
+| **Studio Owner (Desainer)** | `sora@pixelforge.studio` | `PixelForge2026!` | Kontrol penuh atas seluruh proyek, unggah aset, buat koleksi/tag, kirim undangan klien, dan kelola pesan masuk. *(Tersedia tombol satu-klik **"Fill Studio Owner Demo"** di halaman login)* |
+| **Client Reviewer (Klien)** | `elena.client@helio.bio` | `ClientReview2026!` | Melihat proyek yang dibagikan, membandingkan versi revisi, memberi komentar revisi, dan menyetujui deliverable (*independent sign-off*). |
+| **Public Visitor (Publik)** | *(Tanpa Login)* | *(Tanpa Login)* | Menjelajahi galeri portofolio publik, profil studio, dan mengirim pesan formulir komisi proyek. |
 
 ---
 
-## 3. Prerequisites
+## 🚀 Fitur Utama
 
-- **Node.js:** `v20.11.0` or newer (`v22 LTS` recommended)
-- **Package Manager:** `npm` `v10+`
-- **Supabase CLI (optional for local Docker stack or remote migration push):** `npx supabase --version`
-- **Git:** `v2.40+`
+### 1. Portofolio Publik & Halaman Showcase (`/`, `/portfolio`, `/about`, `/contact`)
+- **Desain Futuristik Dark-First:** Tampilan estetis khas studio kreatif dengan dukungan tema Terang (*Light Mode*) dan responsif mobile.
+- **Studi Kasus Interaktif:** Rincian proses desain, *creative brief*, alat yang digunakan (*tools*), dan hasil akhir proyek.
+- **Formulir Kontak Anti-Spam:** Dilindungi perangkap *honeypot* dan validasi kecepatan pengisian otomatis untuk mencegah spam tanpa captcha yang mengganggu.
+
+### 2. Manajemen Aset Kreatif Mandiri (`/dashboard/assets`, `/dashboard/collections`)
+- **Tampilan Grid & List:** Tinjau thumbnail, dimensi piksel, ukuran file, format, dan metadata aset.
+- **Filter Multi-Kategori:** Filter berdasarkan tipe file (`SVG`, `PNG`, `WEBP`, `JPG`, `GIF`, `PDF`, `ZIP`), kategori desain, tag custom, dan koleksi.
+- **Unggah Drag-and-Drop:** Validasi ukuran maksimal (50 MB) dan format MIME di sisi server.
+- **Penyimpanan Aman (Zero-Traversal):** Nama path penyimpanan diacak dan di-hash untuk mencegah eksploitasi traversal direktori.
+- **Akses URL Berjangka:** File privat dilindungi Signed URL Supabase Storage berdurasi 30 menit.
+- **Aksi Massal (Bulk Actions):** Ubah visibilitas publik/privat, hapus massal, atau masukkan ke koleksi dalam satu klik.
+
+### 3. Manajemen Proyek & Matriks Revisi (`/dashboard/projects`, `/dashboard/projects/[id]`)
+- **Siklus Hidup Proyek:** Status terstruktur (`Draft`, `In Progress`, `In Review`, `Approved`, `Archived`) dengan tingkat prioritas.
+- **Riwayat Versi Deliverable:** Mengunggah dan melacak versi deliverable (`v1`, `v2`, dst.) lengkap dengan catatan revisi.
+- **Side-by-Side Version Comparison:** Matriks perbandingan visual dan teknis untuk melihat lompatan versi, perubahan ukuran file, dan status review antar versi.
+
+### 4. Portal Kolaborasi Klien & Undangan Kriptografis (`/dashboard/clients`, `/invite/[token]`)
+- **Undangan Sekali Pakai (Single-Use Token):** Token acak kriptografis 256-bit berbatas waktu (1–30 hari). Token mentah tidak pernah disimpan di database, hanya hash `SHA-256` (`token_hash`) yang disimpan.
+- **Penerimaan Idempoten:** Mencegah eskalasi hak akses atau penggandaan anggota proyek.
+- **Independent Sign-Off Enforcement:** Aturan ketat sistem yang melarang pembuat deliverable menyetujui karyanya sendiri—persetujuan akhir hanya sah dari klien/reviewer.
+
+### 5. Telemetri Studio, Log Audit & Notifikasi (`/dashboard`, `/dashboard/activity`)
+- **Dashboard Telemetri:** Statistik metrik proyek aktif, kapasitas penyimpanan terpakai, dan status alur revisi.
+- **Log Audit Imutabel:** Catatan aktivitas tersanitasi otomatis (*passwords, secrets, and raw tokens are redacted*).
+- **Notification Center:** Notifikasi in-app langsung dengan status baca/belum baca dan tautan langsung ke sumber daya terkait.
 
 ---
 
-## 4. Local Setup Instructions
+## 🛠️ Arsitektur Teknologi
 
-A fresh developer can run **PIXELFORGE** locally in two modes:
-- **Mode A — Zero-Config Local Studio Mode:** Runs immediately after `npm install` using deterministic in-memory stores and signed HTTP-only cookies when Supabase environment variables are left blank.
-- **Mode B — Full Supabase Mode (Local CLI or Cloud Project):** Connects to a live Supabase PostgreSQL database, GoTrue Auth, and private Storage bucket.
+- **Frontend & Server:** Next.js 15.5 (App Router, Server Actions, Route Handlers, Middleware)
+- **Bahasa:** TypeScript 5.8 (Strict Type-checking)
+- **Gaya & Komponen:** Tailwind CSS 3.4, Framer Motion 12, Lucide React
+- **Basis Data:** Supabase PostgreSQL 15 dengan **Row Level Security (RLS)** aktif di seluruh 16 tabel
+- **Penyimpanan File:** Supabase Storage (Private Bucket `creative-assets`)
+- **Validasi Data:** Zod 3.24
+- **Pengujian (Testing):** Vitest 3 + PGlite (In-memory real PostgreSQL engine)
+- **Deployment:** Vercel (Edge & Serverless Node.js Runtime)
+
+---
+
+## 💻 Panduan Menjalankan di Komputer Lokal
+
+Aplikasi memiliki fitur **Zero-Config Local Fallback Mode**, sehingga Anda dapat langsung menjalankannya tanpa konfigurasi awal Supabase:
 
 ```bash
-# 1. Clone the repository and navigate into the project directory
-git clone <your-repo-url> pixel-forge
-cd pixel-forge
+# 1. Clone repositori ini
+git clone https://github.com/v0rade/PIXELFORGE.git
+cd PIXELFORGE
 
-# 2. Install dependencies
+# 2. Pasang dependensi
 npm install
 
-# 3. Copy the environment variable template
+# 3. Buat file environment lokal
 cp .env.example .env.local
 
-# 4. Run verification checks (lint, typecheck, and 89 automated tests)
+# 4. Jalankan pengujian otomatis (89 test suites)
 npm run verify
 
-# 5. Start the development server at http://localhost:3000
+# 5. Jalankan server lokal
 npm run dev
 ```
 
----
-
-## 5. Environment Variable Configuration
-
-Configure these variables in `.env.local` for local development and in **Vercel Project Settings $\rightarrow$ Environment Variables** for Preview and Production deployments:
-
-| Variable Name | Scope | Required | Where to Configure | Purpose |
-| :--- | :--- | :--- | :--- | :--- |
-| `NEXT_PUBLIC_APP_URL` | Public | Yes | `.env.local` & Vercel (`Production` / `Preview`) | Canonical origin URL used for OAuth/PKCE auth callbacks and invitation links (e.g., `http://localhost:3000` or `https://your-app.vercel.app`). |
-| `NEXT_PUBLIC_SUPABASE_URL` | Public | For Supabase Mode | `.env.local` & Vercel | Your Supabase project URL (`https://<project-ref>.supabase.co`). Safe for browser use. |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Public | For Supabase Mode | `.env.local` & Vercel | Supabase public `anon` / publishable key. Enforces PostgreSQL RLS policies on every query. |
-| `SUPABASE_SERVICE_ROLE_KEY` | **Server-Only** | Optional (Admin tasks) | `.env.local` & Vercel (Encrypted) | Privileged Supabase key. **Never prefix with `NEXT_PUBLIC_` or expose to client code.** |
-| `RESEND_API_KEY` | **Server-Only** | Optional | `.env.local` & Vercel (Encrypted) | Enables real outbound transactional emails via Resend API. When omitted, PIXELFORGE uses in-app notifications only and never pretends emails were sent. |
-| `EMAIL_FROM` | Server-Only | Optional | `.env.local` & Vercel | Sender address for outbound transactional emails (default: `notifications@pixelforge.studio`). |
-| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` | **Server-Only** | Optional | `.env.local` & Vercel (Encrypted) | Alternative SMTP transport configuration when not using Resend. |
-| `LOG_LEVEL` | Server-Only | Optional | `.env.local` & Vercel | Structured logger verbosity (`info`, `warn`, `error`). Defaults to `info`. |
+Buka peramban Anda di [http://localhost:3000](http://localhost:3000).
 
 ---
 
-## 6. Supabase Setup, Migrations & Storage Configuration
+## ⚙️ Konfigurasi Environment Variables
 
-### Controlled Database Migration Process
+File [`.env.example`](.env.example) menyediakan template siap pakai:
 
-All SQL schema definitions, triggers, indexes, and RLS policies are version-controlled in [`supabase/migrations/`](file:///C:/Users/LLoyD/.gemini/antigravity/scratch/pixel-forge/supabase/migrations):
-1. [`20261016000001_initial_schema.sql`](file:///C:/Users/LLoyD/.gemini/antigravity/scratch/pixel-forge/supabase/migrations/20261016000001_initial_schema.sql) — Creates all 16 core tables, foreign keys, check constraints, composite/partial performance indexes, `updated_at` triggers, and `handle_new_user()` profile initialization trigger.
-2. [`20261016000002_rls_policies.sql`](file:///C:/Users/LLoyD/.gemini/antigravity/scratch/pixel-forge/supabase/migrations/20261016000002_rls_policies.sql) — Enables and forces Row Level Security (`ENABLE ROW LEVEL SECURITY` + `FORCE ROW LEVEL SECURITY`) on all 16 tables, defines `SECURITY DEFINER` membership functions with `SET search_path = public`, column-guard triggers, and `storage.objects` policies for the private `creative-assets` bucket.
+| Variabel | Lingkungan | Wajib? | Penjelasan |
+| :--- | :--- | :--- | :--- |
+| `NEXT_PUBLIC_APP_URL` | Browser & Server | Ya | URL asal aplikasi (misal `http://localhost:3000` atau `https://pixelforge-ecru.vercel.app`). |
+| `NEXT_PUBLIC_SUPABASE_URL` | Browser & Server | Cloud Mode | URL endpoint project Supabase (`https://<project-ref>.supabase.co`). |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Browser & Server | Cloud Mode | Publishable/Anon Key Supabase (aman untuk browser karena dilindungi RLS). |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-Only | Opsional | Kunci admin Supabase (rahasia, tidak pernah diekspos ke browser). |
+| `RESEND_API_KEY` | Server-Only | Opsional | Kunci API Resend jika ingin mengaktifkan pengiriman email notifikasi asli. |
+| `EMAIL_FROM` | Server-Only | Opsional | Alamat email pengirim (default: `notifications@pixelforge.studio`). |
+
+---
+
+## 🗄️ Menyiapkan Database Supabase (Production)
+
+File skema dan kebijakan keamanan telah disiapkan di folder [`supabase/migrations/`](supabase/migrations/):
+
+1. **`20261016000001_initial_schema.sql`**: Membuat seluruh 16 tabel, foreign keys, relasi, constraint, indeks performa, dan trigger inisialisasi akun pengguna baru.
+2. **`20261016000002_rls_policies.sql`**: Mengaktifkan `FORCE ROW LEVEL SECURITY` pada seluruh tabel dan mengonfigurasi bucket privat `creative-assets`.
+3. Jalankan kedua file tersebut melalui **Supabase Dashboard $\rightarrow$ SQL Editor** atau menggunakan Supabase CLI:
+   ```bash
+   npx supabase link --project-ref <PROJECT_REF>
+   npm run db:migrate
+   ```
+
+---
+
+## 🧪 Skrip Pengujian & Kualitas Kode
 
 ```bash
-# Authenticate with Supabase CLI
-npx supabase login
-
-# Link to your remote Supabase project
-npx supabase link --project-ref <your-project-ref>
-
-# Push version-controlled migrations to production/staging database
-npm run db:migrate
-
-# (Local development only) Reset local database and apply supabase/seed.sql
-npm run db:reset
-```
-
-### Authentication & Redirect URLs Configuration
-
-In **Supabase Dashboard $\rightarrow$ Authentication $\rightarrow$ URL Configuration**:
-1. **Site URL:** Set to your production domain (e.g., `https://your-pixelforge.vercel.app`).
-2. **Redirect URLs:** Add the following allowed callback patterns:
-   - `http://localhost:3000/auth/callback`
-   - `http://localhost:3000/dashboard/settings`
-   - `https://your-pixelforge.vercel.app/auth/callback`
-   - `https://your-pixelforge.vercel.app/dashboard/settings`
-   - `https://*-<your-vercel-team>.vercel.app/auth/callback` (for Vercel Preview deployments)
-3. **Email Templates (Authentication $\rightarrow$ Email Templates):**
-   - **Confirm Signup:** Ensure the confirmation link points to `{{ .SiteURL }}/auth/callback?token_hash={{ .TokenHash }}&type=signup` (or standard PKCE `{{ .ConfirmationURL }}`).
-   - **Reset Password:** Ensure the recovery link points to `{{ .SiteURL }}/auth/callback?next=/dashboard/settings`.
-
-### Private Storage Bucket Verification
-
-Migration `20261016000002_rls_policies.sql` automatically provisions the private `creative-assets` bucket (`public = false`) and enforces `storage.objects` RLS policies:
-- **Upload (`INSERT`):** Authenticated users can upload only to their own namespace prefix (`creative-assets/{auth.uid()}/...`).
-- **Read (`SELECT`):** Restricted to the asset owner or accepted project members via short-lived signed URLs (`POST /api/v1/assets/[id]/signed-url`).
-- **Delete (`DELETE`):** Restricted strictly to the asset owner (`owner_id = auth.uid()`).
-
----
-
-## 7. Testing, Linting, Type-Checking & Build Commands
-
-```bash
-# Run ESLint across src/ (0 errors, 0 warnings)
-npm run lint
-
-# Run strict TypeScript compiler check (0 errors)
-npm run typecheck
-
-# Run full Vitest unit, PGlite RLS integration, and E2E workflow suite (89 tests across 9 suites)
+# Menjalankan seluruh test suite Vitest & PostgreSQL RLS (89 tests)
 npm test
 
-# Run combined verification pipeline (lint + typecheck + test)
-npm run verify
+# Pengecekan linter ESLint (0 errors, 0 warnings)
+npm run lint
 
-# Audit production dependencies for known vulnerabilities
+# Validasi tipe statis TypeScript (0 errors)
+npm run typecheck
+
+# Audit keamanan dependensi
 npm audit --omit=dev
 
-# Build optimized production bundle
+# Kompilasi build produksi Next.js
 npm run build
-
-# Start production server locally
-npm start
 ```
 
 ---
 
-## 8. Vercel Deployment Instructions (Preview & Production)
+## 🔒 Catatan Keamanan
 
-1. **Import Repository into Vercel:**
-   - Push the repository to GitHub/GitLab/Bitbucket and import it in the [Vercel Dashboard](https://vercel.com/new).
-   - Framework Preset is automatically detected via [`vercel.json`](file:///C:/Users/LLoyD/.gemini/antigravity/scratch/pixel-forge/vercel.json) (`nextjs`).
-2. **Configure Environment Variables:**
-   - Add `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, and (optionally) `SUPABASE_SERVICE_ROLE_KEY` and `RESEND_API_KEY` for both **Production** and **Preview** environments.
-3. **Apply Database Migrations Prior to Release:**
-   - Run `npm run db:migrate` (`npx supabase db push`) against your target Supabase project before promoting a build to production.
-4. **Verify Deployment Health:**
-   - Once deployed, visit `https://<your-domain>/api/v1/health` to confirm `status: "ok"`, `databaseMode: "supabase_cloud"`, and `storageMode: "supabase_private_bucket"`.
+- **Row Level Security (RLS):** Semua query ke Supabase divalidasi langsung di level database berdasarkan token JWT pengguna yang login.
+- **Proteksi IDOR:** Pengguna tidak dapat membaca atau menyunting proyek, aset, notifikasi, maupun pesan milik pengguna lain.
+- **Proteksi Rate Limiting:** Endpoint autentikasi, pemulihan sandi, dan formulir publik dilindungi pembatas laju geser (*sliding-window rate limit*) dengan respons `429 Too Many Requests`.
+- **Header Keamanan HTTP:** Dilengkapi Content-Security-Policy (CSP), Strict-Transport-Security (HSTS), X-Frame-Options (DENY), dan nosniff.
 
 ---
 
-## 9. Backup, Recovery & Free-Tier Constraints
+## 📄 Lisensi
 
-### Database & Storage Backup Strategy
-
-- **What the Supabase Free Tier Provides & Does Not Provide:**
-  - The **Supabase Free Plan** does **not** include automated daily backups or Point-in-Time Recovery (PITR).
-  - The **Supabase Pro Plan** includes automated daily backups (7-day retention) and optional PITR.
-- **Recommended Free-Tier Backup Procedure:**
-  - Run scheduled logical dumps using `pg_dump` via GitHub Actions or local CLI:
-    ```bash
-    npx supabase db dump --db-url "$DIRECT_DATABASE_URL" -f backup_$(date +%Y%m%d).sql
-    ```
-  - Keep all schema changes strictly in [`supabase/migrations/`](file:///C:/Users/LLoyD/.gemini/antigravity/scratch/pixel-forge/supabase/migrations) so the database structure can be reconstructed deterministically at any time.
-
-### Free-Tier Limits & Operational Constraints
-
-| Service | Free-Tier Limit | PIXELFORGE Mitigation |
-| :--- | :--- | :--- |
-| **Supabase Database** | `500 MB` storage; pauses after 7 days of inactivity | Composite/partial indexes keep index footprint compact; `GET /api/v1/health` can be pinged by a cron monitor to prevent inactivity pausing. |
-| **Supabase Storage** | `1 GB` total storage (`50 MB` max file upload on Free Tier) | Server-side upload validator (`MAX_ASSET_FILE_SIZE = 50 * 1024 * 1024`) enforces the exact `50 MB` limit before storage transfer. |
-| **Supabase Auth** | `50,000` Monthly Active Users; built-in email rate limit (~2–4 emails/hr on default SMTP) | Custom SMTP or `RESEND_API_KEY` can be attached for production email volume; in-app notifications work with zero email dependency. |
-| **Vercel Hobby Plan** | `100 GB` bandwidth/month; Serverless Function timeout `10s–60s`; `4.5 MB` serverless request body limit | Direct Supabase Storage uploads are supported when Supabase is configured; API routes use pagination (`limit <= 50`) and fast indexed queries. |
-
----
-
-## 10. Security Notes & Troubleshooting
-
-### Security Architecture Summary
-- **Row Level Security (`FORCE ROW LEVEL SECURITY`):** Enabled on all 16 tables so even table owners cannot bypass policies without explicit `service_role`.
-- **Zero-Trust Invitations:** Raw tokens are generated with 256 bits of CSPRNG entropy (`crypto.randomBytes(32)`) and hashed with `SHA-256` before persistence.
-- **Independent Deliverable Sign-Off:** Server-side checks and database policies block submitters from approving their own deliverables.
-- **HTTP Security Headers & Rate Limiting:** CSP (`object-src 'none'`, `frame-ancestors 'none'`), HSTS, `X-Frame-Options: DENY`, `nosniff`, and sliding-window rate limiters protect all auth, invitation, and contact endpoints.
-
-### Troubleshooting
-
-- **Auth Redirect Loops or `Invalid Redirect URL` on Login/Signup:**
-  - Verify `NEXT_PUBLIC_APP_URL` matches your browser origin (`http://localhost:3000` locally) and that `<origin>/auth/callback` is listed in Supabase Dashboard $\rightarrow$ Authentication $\rightarrow$ URL Configuration.
-- **`429 RATE_LIMIT_EXCEEDED` During Rapid Testing:**
-  - Auth and public contact endpoints enforce sliding-window rate limits per IP. Wait for the `Retry-After` header duration (60 seconds for auth routes) or restart the dev server.
-- **Private Asset Previews Returning `403` or `404`:**
-  - Ensure the `creative-assets` bucket exists in Supabase Storage (`20261016000002_rls_policies.sql`) and that the requesting user is either the asset owner or an accepted member of a project linked to that asset.
+Didistribusikan di bawah lisensi private studio. Hak cipta dilindungi undang-undang.
