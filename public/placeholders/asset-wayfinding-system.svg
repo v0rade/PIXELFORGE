@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <rect width="1200" height="800" fill="#09090F"/>
+  <rect x="100" y="100" width="1000" height="600" rx="16" fill="#151624" stroke="#A78BFA" stroke-opacity="0.3"/>
+  <g transform="translate(150, 150)">
+    <rect width="420" height="500" rx="10" fill="#09090F" stroke="#F4F4F8" stroke-opacity="0.1"/>
+    <text x="36" y="64" fill="#22D3EE" font-family="monospace" font-size="16">WAYFINDING // LEVEL 02</text>
+    <text x="36" y="150" fill="#F4F4F8" font-family="sans-serif" font-size="64" font-weight="700">A2 →</text>
+    <text x="36" y="210" fill="#989AAF" font-family="sans-serif" font-size="22">Acoustic Chambers &amp; Labs</text>
+    <line x1="36" y1="260" x2="384" y2="260" stroke="#F4F4F8" stroke-opacity="0.12"/>
+    <text x="36" y="340" fill="#A78BFA" font-family="sans-serif" font-size="64" font-weight="700">B1 ↗</text>
+    <text x="36" y="400" fill="#989AAF" font-family="sans-serif" font-size="22">Observation Deck &amp; Archive</text>
+  </g>
+  <g transform="translate(610, 150)">
+    <rect width="440" height="235" rx="10" fill="#10111B" stroke="#22D3EE" stroke-opacity="0.3"/>
+    <circle cx="110" cy="117" r="60" stroke="#22D3EE" stroke-width="3"/>
+    <path d="M90 117 L130 117 M115 100 L132 117 L115 134" stroke="#F4F4F8" stroke-width="3" stroke-linecap="round"/>
+    <text x="200" y="110" fill="#F4F4F8" font-family="sans-serif" font-size="24" font-weight="600">Directional Grid</text>
+    <text x="200" y="142" fill="#989AAF" font-family="monospace" font-size="14">ISO-7001 // PICTOGRAPH</text>
+    <rect y="265" width="440" height="235" rx="10" fill="#10111B" stroke="#A78BFA" stroke-opacity="0.3"/>
+    <rect x="40" y="315" width="360" height="24" rx="4" fill="#A78BFA" fill-opacity="0.25"/>
+    <rect x="40" y="360" width="280" height="24" rx="4" fill="#22D3EE" fill-opacity="0.25"/>
+    <rect x="40" y="405" width="320" height="24" rx="4" fill="#34D399" fill-opacity="0.25"/>
+    <text x="40" y="465" fill="#989AAF" font-family="monospace" font-size="13">ENVIRONMENTAL GRAPHICS // ELEVATION SCALE 1:25</text>
+  </g>
+</svg>

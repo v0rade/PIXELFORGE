@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <rect width="1200" height="800" fill="#09090F"/>
+  <g stroke="#22D3EE" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 4">
+    <rect x="140" y="100" width="920" height="600"/>
+    <line x1="420" y1="100" x2="420" y2="700"/>
+    <line x1="780" y1="100" x2="780" y2="700"/>
+    <line x1="140" y1="280" x2="1060" y2="280"/>
+    <line x1="140" y1="520" x2="1060" y2="520"/>
+  </g>
+  <rect x="420" y="280" width="360" height="240" fill="#151624" stroke="#A78BFA" stroke-width="2"/>
+  <rect x="420" y="100" width="360" height="180" fill="#10111B" stroke="#22D3EE" stroke-width="1.5"/>
+  <rect x="420" y="520" width="360" height="180" fill="#10111B" stroke="#22D3EE" stroke-width="1.5"/>
+  <rect x="140" y="280" width="280" height="240" fill="#10111B" stroke="#A78BFA" stroke-width="1.5"/>
+  <rect x="780" y="280" width="280" height="240" fill="#10111B" stroke="#A78BFA" stroke-width="1.5"/>
+  <circle cx="600" cy="400" r="56" stroke="#22D3EE" stroke-width="2.5" fill="#A78BFA" fill-opacity="0.18"/>
+  <text x="450" y="320" fill="#989AAF" font-family="monospace" font-size="13">PANEL_A // FRONT FACE (180x120mm)</text>
+  <text x="165" y="320" fill="#989AAF" font-family="monospace" font-size="13">FLAP_L // 140mm</text>
+  <text x="805" y="320" fill="#989AAF" font-family="monospace" font-size="13">FLAP_R // 140mm</text>
+  <text x="140" y="75" fill="#22D3EE" font-family="monospace" font-size="14" letter-spacing="2">PACKAGING DIELINE SPECIFICATION // CUT + CREASE</text>
+</svg>

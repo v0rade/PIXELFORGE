@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <rect width="1200" height="800" fill="#09090F"/>
+  <defs>
+    <radialGradient id="posterGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#22D3EE" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#09090F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#posterGlow)"/>
+  <rect x="340" y="60" width="520" height="680" rx="8" fill="#10111B" stroke="#F4F4F8" stroke-opacity="0.18" stroke-width="1.5"/>
+  <g stroke="#A78BFA" stroke-opacity="0.35" stroke-width="1.2">
+    <ellipse cx="600" cy="360" rx="180" ry="180"/>
+    <ellipse cx="600" cy="360" rx="180" ry="120" transform="rotate(30 600 360)"/>
+    <ellipse cx="600" cy="360" rx="180" ry="120" transform="rotate(60 600 360)"/>
+    <ellipse cx="600" cy="360" rx="180" ry="120" transform="rotate(90 600 360)"/>
+    <ellipse cx="600" cy="360" rx="180" ry="120" transform="rotate(120 600 360)"/>
+    <ellipse cx="600" cy="360" rx="180" ry="120" transform="rotate(150 600 360)"/>
+  </g>
+  <circle cx="600" cy="360" r="54" fill="#22D3EE" fill-opacity="0.2" stroke="#22D3EE" stroke-width="2"/>
+  <text x="380" y="120" fill="#F4F4F8" font-family="sans-serif" font-size="28" font-weight="700" letter-spacing="6">KINETIC // 2026</text>
+  <text x="380" y="640" fill="#F4F4F8" font-family="sans-serif" font-size="42" font-weight="800" letter-spacing="-1">SYNTHESIS</text>
+  <text x="380" y="675" fill="#989AAF" font-family="monospace" font-size="14" letter-spacing="3">EXHIBITION POSTER SERIES // EDITION 04</text>
+  <line x1="380" y1="700" x2="820" y2="700" stroke="#22D3EE" stroke-opacity="0.5"/>
+</svg>
