@@ -18,9 +18,17 @@ END
 $$;
 
 GRANT USAGE ON SCHEMA public TO anon, authenticated;
-GRANT USAGE ON SCHEMA auth TO anon, authenticated;
-GRANT EXECUTE ON FUNCTION auth.uid() TO anon, authenticated;
-GRANT EXECUTE ON FUNCTION auth.role() TO anon, authenticated;
+
+DO $$
+BEGIN
+  GRANT USAGE ON SCHEMA auth TO anon, authenticated;
+  GRANT EXECUTE ON FUNCTION auth.uid() TO anon, authenticated;
+  GRANT EXECUTE ON FUNCTION auth.role() TO anon, authenticated;
+EXCEPTION
+  WHEN insufficient_privilege THEN
+    NULL;
+END
+$$;
 
 GRANT SELECT ON
   public.profiles,

@@ -5,36 +5,41 @@
 --              indexes, updated_at triggers, and profile initialization flow.
 -- ============================================================================
 
--- Ensure auth schema and auth.users / auth.uid() exist in non-Supabase test environments
+-- Ensure auth schema and auth.users / auth.uid() exist ONLY in non-Supabase local test environments.
+-- In Supabase Cloud, schema 'auth' already exists and is managed by supabase_auth_admin.
 DO $$
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'auth') THEN
     CREATE SCHEMA auth;
+
+    CREATE TABLE auth.users (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      email TEXT UNIQUE,
+      raw_user_meta_data JSONB NOT NULL DEFAULT '{}'::jsonb,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc', now())
+    );
+
+    EXECUTE $fn1$
+      CREATE OR REPLACE FUNCTION auth.uid()
+      RETURNS UUID
+      LANGUAGE sql
+      STABLE
+      AS $body$
+        SELECT NULLIF(current_setting('request.jwt.claim.sub', true), '')::uuid;
+      $body$;
+    $fn1$;
+
+    EXECUTE $fn2$
+      CREATE OR REPLACE FUNCTION auth.role()
+      RETURNS TEXT
+      LANGUAGE sql
+      STABLE
+      AS $body$
+        SELECT COALESCE(NULLIF(current_setting('request.jwt.claim.role', true), ''), current_user);
+      $body$;
+    $fn2$;
   END IF;
 END
-$$;
-
-CREATE TABLE IF NOT EXISTS auth.users (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  email TEXT UNIQUE,
-  raw_user_meta_data JSONB NOT NULL DEFAULT '{}'::jsonb,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc', now())
-);
-
-CREATE OR REPLACE FUNCTION auth.uid()
-RETURNS UUID
-LANGUAGE sql
-STABLE
-AS $$
-  SELECT NULLIF(current_setting('request.jwt.claim.sub', true), '')::uuid;
-$$;
-
-CREATE OR REPLACE FUNCTION auth.role()
-RETURNS TEXT
-LANGUAGE sql
-STABLE
-AS $$
-  SELECT COALESCE(NULLIF(current_setting('request.jwt.claim.role', true), ''), current_user);
 $$;
 
 -- ============================================================================
