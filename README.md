@@ -29,15 +29,18 @@
 
 ---
 
-## 🔑 Cara Mengakses Aplikasi & Akun Demo
+## 🔑 Cara Mengakses Aplikasi & Pengujian Akun
 
-Anda dapat langsung mencoba aplikasi baik di versi live Vercel maupun di localhost menggunakan akun-akun demo berikut:
+Anda dapat langsung mencoba aplikasi baik di versi live Vercel maupun di localhost:
 
-| Peran (Role) | Email | Password | Hak Akses Utama |
+| Peran (Role) | Akun Pengujian | Metode Akses | Hak Akses Utama |
 | :--- | :--- | :--- | :--- |
-| **Studio Owner (Desainer)** | `sora@pixelforge.studio` | `PixelForge2026!` | Kontrol penuh atas seluruh proyek, unggah aset, buat koleksi/tag, kirim undangan klien, dan kelola pesan masuk. *(Tersedia tombol satu-klik **"Fill Studio Owner Demo"** di halaman login)* |
-| **Client Reviewer (Klien)** | `elena.client@helio.bio` | `ClientReview2026!` | Melihat proyek yang dibagikan, membandingkan versi revisi, memberi komentar revisi, dan menyetujui deliverable (*independent sign-off*). |
-| **Public Visitor (Publik)** | *(Tanpa Login)* | *(Tanpa Login)* | Menjelajahi galeri portofolio publik, profil studio, dan mengirim pesan formulir komisi proyek. |
+| **Studio Owner (Desainer)** | `sora@pixelforge.studio` | Klik tombol **"Fill Studio Owner Demo"** di halaman login `/login` | Kontrol penuh atas seluruh proyek, unggah aset, buat koleksi/tag, kirim undangan klien, dan kelola pesan masuk. |
+| **Client Reviewer (Klien)** | `elena.client@helio.bio` | Melalui tautan undangan proyek atau pendaftaran `/signup` | Melihat proyek yang dibagikan, membandingkan versi revisi, memberi catatan revisi, dan menyetujui deliverable (*independent sign-off*). |
+| **Public Visitor (Publik)** | *(Tanpa Login)* | Akses langsung beranda & portofolio | Menjelajahi galeri portofolio publik, studi kasus, profil studio, dan mengirim pesan formulir komisi proyek. |
+
+> [!TIP]
+> Anda juga dapat mendaftarkan akun pribadi baru kapan saja melalui halaman [Sign Up](https://pixelforge-ecru.vercel.app/signup). Seluruh data proyek dan aset Anda akan diisolasi secara aman menggunakan PostgreSQL Row Level Security (RLS).
 
 ---
 
